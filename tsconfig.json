@@ -1,0 +1,12 @@
+{
+    "compilerOptions":{
+        "target":"ES2022",
+        "module":"CommonJS",
+        "outDir":"dist",
+        "esModuleInterop":true,
+        "strict":false, 
+        "allowSyntheticDefaultImports": true,
+        "rootDir":"src"
+    },
+    "include":["src/**/*.ts"]
+}

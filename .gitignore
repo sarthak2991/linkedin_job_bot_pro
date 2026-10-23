@@ -1,0 +1,30 @@
+# Dependencies and compiled output
+node_modules/
+dist/
+
+# Environment variables and API credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# LinkedIn browser session (contains authenticated cookies/tokens)
+linkedin-auth.json
+
+# Personal documents
+sarthak_resume.pdf
+resume.pdf
+
+# Generated files and local logs
+jobs.xlsx
+jobRatings.json
+run.log
+*.log
+
+# OS/editor files
+.DS_Store
+.vscode/
+.idea/

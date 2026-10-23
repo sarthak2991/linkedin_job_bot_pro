@@ -1,0 +1,21 @@
+{
+  "name": "linkedin-job-bot-pro",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "login": "node dist/saveSession.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@playwright/test": "^1.55.0",
+    "dotenv": "^16.4.5",
+    "exceljs": "^4.4.0",
+    "pdf-parse": "^1.1.1",
+    "string-similarity": "^4.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.3"
+  }
+}
