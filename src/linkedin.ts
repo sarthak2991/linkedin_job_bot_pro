@@ -44,9 +44,13 @@ async function collectJobCards(
 
       for (let i = 0; i < count; i++) {
         const card = cards.nth(i);
-        await card.scrollIntoViewIfNeeded();
 
         try {
+          // LinkedIn virtualizes this list. A card can be removed and replaced
+          // between count() and this interaction, so keep the failure local to
+          // this card rather than ending the whole collection pass.
+          await card.scrollIntoViewIfNeeded({ timeout: 5_000 });
+
           // 1. Extract Job ID (from attribute or fallback link)
           let jobId = await card.getAttribute("data-occludable-job-id") || await card.getAttribute("data-job-id");
 
@@ -134,6 +138,10 @@ async function collectJobCards(
           }
 
         } catch (err) {
+          if (err instanceof Error && /not attached to the DOM|detached/i.test(err.message)) {
+            console.warn(`Job card ${i} was replaced while processing; skipping it.`);
+            continue;
+          }
           console.error("Error processing dynamic job card:", err);
         }
       }
